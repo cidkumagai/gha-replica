@@ -8,9 +8,17 @@ on:
         default: Hello #入力パラメータのデフォルト値
         required: true #入力パラメータの必須フラグ
         description: A cheerful world #入力パラメータの概要
+      log-level:
+        type: choice #入力パラメータを特定の値に制限
+        options: #入力パラメータの選択肢
+          - info
+          - warn
+          - error
+
 
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ inputs.greeting }}" #入力パラメータ『greeting』の参照
+      - run: echo "${{ inputs.log-level }}" #入力パラメータ『log-level』の参照
