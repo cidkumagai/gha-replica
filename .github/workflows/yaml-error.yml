@@ -1,0 +1,9 @@
+name: YAML Error
+
+on: push
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+      steps:
+      - run: echo "Hello, world!"
