@@ -1,0 +1,12 @@
+# タイムゾーンがUTCでJST(日本時間)とは9時間のずれがあるため注意
+name: Schedule
+
+on:
+  schedule:
+    - cron: '*/15 * * * *' #15分ごとに起動するcron式
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - run: date
