@@ -4,9 +4,7 @@ on: push
 
 jobs:
   skip-or-run:
+    if: ${{ github.actor == 'cidkumagai' }} # cidkumagai以外はスキップ
     runs-on: ubuntu-latest
     steps:
-      if: ${{ github.actor == 'cidkumagai' }} # cidkumagai以外はスキップ
-      runs-on: ubuntu-latest
-      steps:
-        - run: echo "Hello"
+      - run: echo "Hello"
