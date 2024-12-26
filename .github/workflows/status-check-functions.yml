@@ -1,0 +1,11 @@
+name: Status Check Functions
+
+on: push
+
+jobs:
+  fail:
+    runs-on: ubuntu-latest
+    steps:
+      - run: exit 1
+      - run: echo "World"
+        if: ${{ failure() }} # エラーが発生しても、failure関数があるので実行される
