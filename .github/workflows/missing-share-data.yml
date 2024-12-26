@@ -1,0 +1,10 @@
+name: Missing Share Data
+
+on: push
+
+jobs:
+  share:
+    runs-on: ubuntu-latest
+    steps:
+      - run: export RESULT="hello" # 次のステップに環境変数で値を渡そうとしてる
+      - run: echo "${RESULT}" # しかし環境変数を参照しても空文字になる
