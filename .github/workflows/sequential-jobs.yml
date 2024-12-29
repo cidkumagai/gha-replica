@@ -1,0 +1,19 @@
+name: Sequential Jobs
+
+on: push
+
+jobs:
+  first: # 依存ジョブがないので最初に実行される
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 10 && echo "First job"
+  second: # firstジョブが完了した後に実行される
+    runs-on: ubuntu-latest
+    needs: [first] # firstジョブが完了した後に実行される
+    steps:
+      - run: sleep 10 && echo "Second job"
+  third: # secondジョブが完了した後に実行される
+    runs-on: ubuntu-latest
+    needs: [second] # secondジョブが完了した後に実行される
+    steps:
+      - run: sleep 10 && echo "Third job"

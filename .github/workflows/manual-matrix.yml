@@ -1,0 +1,19 @@
+name: Manual Matrix
+
+on: push
+
+jobs:
+  print:
+    strategy:
+      matrix: # 多次元マトリックスの定義
+        include: # 組み合わせ条件を手動で列挙
+          - os: ubuntu-latest # パターン１
+            version: 18
+          - os: macos-latest # パターン２
+            version: 20
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.version }}
+      - run: echo "${RUNNER_OS}" && node --version
