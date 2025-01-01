@@ -1,9 +1,9 @@
-name: YAML Error
+# name: YAML Error
 
-on: push
+# on: push
 
-jobs:
-  run:
-    runs-on: ubuntu-latest
-      steps:
-      - run: echo "Hello, world!"
+# jobs:
+#   run:
+#     runs-on: ubuntu-latest
+#       steps:
+#       - run: echo "Hello, world!"
