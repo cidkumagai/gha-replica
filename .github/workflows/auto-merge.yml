@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions: # マージに必要なパーミッション
       contents: write
-      pull_requests: write
+      pull-requests: write
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub CLIのクレディンシャル
     steps:
