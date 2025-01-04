@@ -15,7 +15,12 @@ jobs:
       - uses: actions/checkout@v4
       - id: meta # 依存関係のメタデータを取得
         uses: dependabot/fetch-metadata@v2 # 条件分岐でパッチバージョンかチェック
-      - if: ${{ steps.meta.outputs.update-type == 'version-update:semver-patch' }}
+      - name: Approve and merge if patch update
+        if: ${{ steps.meta.outputs.update-type == 'version-update:semver-patch' }}
         run: |
-          gh pr review "${GITHUB_HEAD_REF}" --approve
-          gh pr merge "${GITHUB_HEAD_REF}" --merge --auto
+          gh pr review "${{ github.event.pull_request.number }}" --approve
+          gh pr merge "${{ github.event.pull_request.number }}" --merge --auto
+
+      - name: Assign reviewer
+        if: ${{ steps.meta.outputs.update-type != 'version-update:semver-patch' }}
+        run: gh pr edit "${GITHUB_HEAD_REF}" --add-reviewer cidkumagai
