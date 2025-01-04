@@ -12,4 +12,4 @@ updates:
           - 4.3.1
       - dependency-name: 'actions/*' # アスタリスクは任意文字列にマッチ
         update-types: # 除外するバージョンアップの種類
-          - version-update: semver-major
+          - version-update:semver-major
